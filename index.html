@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday My Love ❤️</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&amp;family=Quicksand:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow-x: hidden;
+    }
+    
+    .font-dancing {
+      font-family: 'Dancing Script', cursive;
+    }
+    
+    .font-quicksand {
+      font-family: 'Quicksand', sans-serif;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 25%, #e1bee7 50%, #f8bbd9 75%, #fce4ec 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+    
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    
+    .heart-float {
+      position: fixed;
+      font-size: 20px;
+      animation: floatUp 8s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.7;
+    }
+    
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100%) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.7;
+      }
+      90% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-100%) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    
+    .star-twinkle {
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
+    }
+    
+    .fade-in {
+      animation: fadeIn 1s ease forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .typing-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1.2em;
+      background: #ec4899;
+      margin-left: 2px;
+      animation: blink 0.8s infinite;
+      vertical-align: middle;
+    }
+    
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+    
+    .btn-romantic {
+      background: linear-gradient(135deg, #ec4899 0%, #f472b6 50%, #ec4899 100%);
+      background-size: 200% 200%;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+    }
+    
+    .btn-romantic:hover, .btn-romantic:active {
+      background-position: 100% 0;
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(236, 72, 153, 0.6);
+    }
+    
+    .btn-romantic:active {
+      transform: scale(0.98);
+    }
+    
+    .photo-card {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .photo-card:hover {
+      transform: translateY(-10px) rotate(2deg);
+    }
+    
+    .popup-overlay {
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.7);
+    }
+    
+    .heart-burst {
+      position: fixed;
+      pointer-events: none;
+      z-index: 100;
+      animation: burst 1s ease-out forwards;
+    }
+    
+    @keyframes burst {
+      0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(2) rotate(45deg);
+        opacity: 0;
+      }
+    }
+    
+    .pulse-heart {
+      animation: pulseHeart 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes pulseHeart {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    
+    .slide-up {
+      animation: slideUp 0.5s ease forwards;
+    }
+    
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 50;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ec4899, #a855f7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(168, 85, 247, 0.5);
+      transition: all 0.3s ease;
+    }
+    
+    .music-btn:hover {
+      transform: scale(1.1);
+    }
+    
+    .music-wave {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+    }
+    
+    .music-wave span {
+      width: 3px;
+      background: white;
+      border-radius: 2px;
+      animation: wave 1s ease-in-out infinite;
+    }
+    
+    .music-wave span:nth-child(1) { height: 8px; animation-delay: 0s; }
+    .music-wave span:nth-child(2) { height: 16px; animation-delay: 0.2s; }
+    .music-wave span:nth-child(3) { height: 12px; animation-delay: 0.4s; }
+    .music-wave span:nth-child(4) { height: 18px; animation-delay: 0.6s; }
+    
+    @keyframes wave {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(0.5); }
+    }
+    
+    .music-paused span {
+      animation: none !important;
+      height: 12px !important;
+    }
+    
+    .section {
+      min-height: 100%;
+      width: 100%;
+    }
+    
+    .scroll-container {
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    
+    .photo-modal {
+      transition: all 0.3s ease;
+    }
+    
+    .confetti {
+      position: fixed;
+      pointer-events: none;
+      z-index: 100;
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="font-quicksand gradient-bg h-full w-full">
+  <div id="scroll-container" class="scroll-container"><!-- ========== HALAMAN PEMBUKA ========== -->
+   <section id="opening-page" class="section flex flex-col items-center justify-center px-4 py-8 relative">
+    <div class="text-center z-10 fade-in"><!-- Animasi Hati Besar -->
+     <div class="text-8xl md:text-9xl mb-6 pulse-heart">
+      ❤️
+     </div><!-- Judul Utama -->
+     <h1 id="main-title" class="font-dancing text-4xl md:text-6xl lg:text-7xl text-pink-600 mb-4 drop-shadow-lg">Happy Birthday My Love</h1><!-- Nama Pacar -->
+     <h2 id="partner-name-display" class="font-dancing text-3xl md:text-5xl text-purple-600 mb-8">Sayangku Leni❤️</h2><!-- Tanggal -->
+     <p class="text-pink-500 text-lg mb-10 opacity-80">✨ Hari yang sangat spesial ✨</p><!-- Tombol Buka Pesan --> <button id="open-message-btn" class="btn-romantic text-white font-semibold text-lg md:text-xl px-8 py-4 rounded-full"> 💌 Buka Pesan Spesial </button>
+    </div>
+   </section><!-- ========== HALAMAN PESAN ROMANTIS ========== -->
+   <section id="message-page" class="section hidden flex-col items-center justify-center px-4 py-8">
+    <div class="max-w-2xl mx-auto text-center">
+     <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-6 md:p-10 shadow-2xl border-2 border-pink-200"><!-- Icon Surat -->
+      <div class="text-6xl mb-6">
+       💌
+      </div>
+      <h3 class="font-dancing text-3xl md:text-4xl text-pink-600 mb-6">Pesan Spesial Untukmu</h3><!-- Area Typing Animation -->
+      <div id="typing-container" class="text-left space-y-6">
+       <div class="bg-pink-50 rounded-2xl p-4 md:p-6">
+        <p class="text-pink-400 text-sm mb-2">🎂 Ucapan Ulang Tahun:</p>
+        <p id="birthday-text" class="text-gray-700 text-base md:text-lg leading-relaxed"></p>
+       </div>
+       <div class="bg-purple-50 rounded-2xl p-4 md:p-6">
+        <p class="text-purple-400 text-sm mb-2">🙏 Doa:</p>
+        <p id="prayer-text" class="text-gray-700 text-base md:text-lg leading-relaxed"></p>
+       </div>
+       <div class="bg-red-50 rounded-2xl p-4 md:p-6">
+        <p class="text-red-400 text-sm mb-2">💕 Kata Cinta:</p>
+        <p id="love-text" class="text-gray-700 text-base md:text-lg leading-relaxed"></p>
+       </div>
+      </div><!-- Tombol Interaktif -->
+      <div class="mt-8 space-y-4"><button id="love-btn" class="w-full btn-romantic text-white font-semibold py-3 px-6 rounded-full text-base"> ❤️ Klik kalau kamu sayang aku </button> <button id="secret-btn" class="w-full bg-gradient-to-r from-purple-400 to-pink-400 text-white font-semibold py-3 px-6 rounded-full text-base hover:opacity-90 transition-all hover:scale-105 active:scale-95"> 💌 Pesan Rahasia </button> <button id="gallery-btn" class="w-full bg-gradient-to-r from-pink-400 to-red-400 text-white font-semibold py-3 px-6 rounded-full text-base hover:opacity-90 transition-all hover:scale-105 active:scale-95"> 📸 Kenangan Kita </button>
+      </div>
+     </div>
+    </div>
+   </section><!-- ========== HALAMAN GALERI FOTO ========== -->
+   <section id="gallery-page" class="section hidden flex-col items-center px-4 py-8">
+    <div class="max-w-4xl mx-auto w-full">
+     <h3 class="font-dancing text-4xl md:text-5xl text-pink-600 text-center mb-8">📸 Kenangan Indah Kita</h3><!-- Grid Gallery -->
+     <div id="photo-gallery" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+
+  <!-- FOTO 1 -->
+  <div class="photo-card cursor-pointer" onclick="openPhotoModal(0)">
+    <div class="bg-white rounded-2xl p-2 shadow-lg">
+      <div class="aspect-square overflow-hidden rounded-xl">
+        <img src="assets/photos/foto1.jpeg"
+             class="w-full h-full object-cover">
+      </div>
+      <p class="text-center text-gray-600 text-sm mt-2">Momen pertama kita ❤️</p>
+    </div>
+  </div>
+
+  <!-- FOTO 2 -->
+  <div class="photo-card cursor-pointer" onclick="openPhotoModal(1)">
+    <div class="bg-white rounded-2xl p-2 shadow-lg">
+      <div class="aspect-square overflow-hidden rounded-xl">
+        <img src="assets/photos/foto2.jpeg"
+             class="w-full h-full object-cover">
+      </div>
+      <p class="text-center text-gray-600 text-sm mt-2">Senyummu yang manis</p>
+    </div>
+  </div>
+
+  <!-- FOTO 3 -->
+  <div class="photo-card cursor-pointer" onclick="openPhotoModal(2)">
+    <div class="bg-white rounded-2xl p-2 shadow-lg">
+      <div class="aspect-square overflow-hidden rounded-xl">
+        <img src="assets/photos/foto3.jpeg"
+             class="w-full h-full object-cover">
+      </div>
+      <p class="text-center text-gray-600 text-sm mt-2">Cantik seperti bunga</p>
+    </div>
+  </div>
+
+  <!-- FOTO 4 -->
+  <div class="photo-card cursor-pointer" onclick="openPhotoModal(3)">
+    <div class="bg-white rounded-2xl p-2 shadow-lg">
+      <div class="aspect-square overflow-hidden rounded-xl">
+        <img src="assets/photos/foto4.jpeg"
+             class="w-full h-full object-cover">
+      </div>
+      <p class="text-center text-gray-600 text-sm mt-2">Sunset berdua</p>
+    </div>
+  </div>
+
+  <!-- FOTO 5 -->
+  <div class="photo-card cursor-pointer" onclick="openPhotoModal(4)">
+    <div class="bg-white rounded-2xl p-2 shadow-lg">
+      <div class="aspect-square overflow-hidden rounded-xl">
+        <img src="assets/photos/foto5.jpeg"
+             class="w-full h-full object-cover">
+      </div>
+      <p class="text-center text-gray-600 text-sm mt-2">Perayaan kita</p>
+    </div>
+  </div>
+
+  <!-- FOTO 6 -->
+  <div class="photo-card cursor-pointer" onclick="openPhotoModal(5)">
+    <div class="bg-white rounded-2xl p-2 shadow-lg">
+      <div class="aspect-square overflow-hidden rounded-xl">
+        <img src="assets/photos/foto6.jpeg"
+             class="w-full h-full object-cover">
+      </div>
+      <p class="text-center text-gray-600 text-sm mt-2">Selamanya bersamamu</p>
+    </div>
+  </div>
+
+</div><!-- Tombol Ke Penutup -->
+     <div class="text-center mt-10"><button id="to-closing-btn" class="btn-romantic text-white font-semibold py-3 px-8 rounded-full text-lg"> 💝 Pesan Terakhir </button>
+     </div>
+    </div>
+   </section><!-- ========== HALAMAN PENUTUP ========== -->
+   <section id="closing-page" class="section hidden flex-col items-center justify-center px-4 py-8">
+    <div class="max-w-xl mx-auto text-center">
+     <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-2xl border-2 border-pink-200">
+      <div class="text-7xl mb-6">
+       💖
+      </div>
+      <h3 class="font-dancing text-3xl md:text-4xl text-pink-600 mb-6">Terima Kasih</h3>
+      <p id="closing-text" class="text-gray-700 text-lg md:text-xl leading-relaxed mb-8">Terima kasih sudah hadir dalam hidupku. Kamu adalah hadiah terindah yang pernah aku terima. Semoga kita selalu bersama, dalam suka dan duka, sampai waktu memisahkan. Aku mencintaimu, selamanya. ❤️</p>
+      <div class="space-y-4"><button id="hug-btn" class="w-full btn-romantic text-white font-bold py-4 px-8 rounded-full text-xl"> 🤗 Peluk Virtual </button> <button id="restart-btn" class="w-full bg-gradient-to-r from-purple-400 to-pink-400 text-white font-semibold py-3 px-6 rounded-full text-base hover:opacity-90 transition-all"> 🔄 Lihat Lagi dari Awal </button>
+      </div>
+      <p class="text-pink-400 text-sm mt-8 opacity-70">Made with ❤️ for you</p>
+     </div>
+    </div>
+   </section>
+  </div><!-- ========== TOMBOL MUSIK ========== -->
+  <div id="music-btn" class="music-btn" onclick="toggleMusic()">
+   <div id="music-icon" class="music-wave music-paused"><span></span> <span></span> <span></span> <span></span>
+   </div>
+  </div><!-- ========== POPUP MODAL ========== -->
+  <div id="popup-modal" class="fixed inset-0 popup-overlay z-50 hidden flex items-center justify-center p-4">
+   <div class="bg-white rounded-3xl p-6 md:p-8 max-w-sm w-full text-center shadow-2xl slide-up">
+    <div id="popup-icon" class="text-6xl mb-4">
+     💕
+    </div>
+    <p id="popup-text" class="text-gray-700 text-lg md:text-xl mb-6"></p><button onclick="closePopup()" class="btn-romantic text-white font-semibold py-2 px-6 rounded-full"> Tutup ❤️ </button>
+   </div>
+  </div><!-- ========== PHOTO MODAL ========== -->
+  <div id="photo-modal" class="fixed inset-0 popup-overlay z-50 hidden flex items-center justify-center p-4" onclick="closePhotoModal()">
+   <div class="bg-white rounded-3xl p-4 max-w-lg w-full photo-modal" onclick="event.stopPropagation()">
+    <div id="modal-photo" class="aspect-square bg-gradient-to-br from-pink-200 to-purple-200 rounded-2xl flex items-center justify-center text-8xl mb-4">
+     💑
+    </div>
+    <p id="modal-caption" class="text-center text-gray-700 text-lg font-medium"></p><button onclick="closePhotoModal()" class="w-full mt-4 bg-pink-100 text-pink-600 font-semibold py-2 px-6 rounded-full hover:bg-pink-200 transition-colors"> Tutup </button>
+   </div>
+  </div><!-- ========== HEARTS CONTAINER ========== -->
+  <div id="hearts-container"></div>
+  <div id="stars-container"></div>
+  <script>
+    // ========== KONFIGURASI - MUDAH DIGANTI ==========
+    const defaultConfig = {
+      partner_name: "Sayangku",
+      main_greeting: "Happy Birthday My Love",
+      birthday_message: "Di hari spesialmu ini, aku ingin mengucapkan selamat ulang tahun yang paling indah untukmu. Semoga di usia yang baru ini, semua impianmu terwujud dan kebahagiaanmu berlipat ganda. Kamu pantas mendapatkan semua yang terbaik di dunia ini.",
+      prayer_message: "Semoga Tuhan selalu memberkati dan melindungimu. Semoga kesehatanmu selalu terjaga, hatimu selalu bahagia, dan langkahmu selalu dibimbing ke jalan yang benar. Aku berdoa agar kita selalu diberi kekuatan untuk melewati setiap tantangan bersama.",
+      love_message: "Aku mencintaimu lebih dari kata-kata yang bisa aku ungkapkan. Kamu adalah alasan senyumku setiap hari, inspirasiku untuk menjadi lebih baik, dan belahan jiwaku yang sempurna. Terima kasih sudah menjadi bagian terindah dalam hidupku. Selamat ulang tahun, cintaku!",
+      closing_message: "Terima kasih sudah hadir dalam hidupku. Kamu adalah hadiah terindah yang pernah aku terima. Semoga kita selalu bersama, dalam suka dan duka, sampai waktu memisahkan. Aku mencintaimu, selamanya. ❤️"
+    };
+    
+    // Data Foto - MUDAH DIGANTI
+    const photoData = [
+  {
+    image: "assets/photos/foto1.jpeg",
+    caption: "Momen pertama kita ❤️"
+  },
+  {
+    image: "assets/photos/foto2.jpeg",
+    caption: "Senyummu yang manis"
+  },
+  {
+    image: "assets/photos/foto3.jpeg",
+    caption: "Cantik seperti bunga"
+  },
+  {
+    image: "assets/photos/foto4.jpeg",
+    caption: "Sunset berdua"
+  },
+  {
+    image: "assets/photos/foto5.jpeg",
+    caption: "Perayaan kita"
+  },
+  {
+    image: "assets/photos/foto6.jpeg",
+    caption: "Selamanya bersamamu"
+  }
+];
+    
+    // Pesan Popup
+    const popupMessages = {
+      love: "Aku juga sayang kamu lebih dari apapun di dunia ini! 💕 Kamu adalah segalanya bagiku.",
+      secret: "Rahasia kecilku: Setiap malam sebelum tidur, aku selalu berdoa agar kita bisa terus bersama selamanya. Kamu adalah mimpi indah yang menjadi kenyataan. 🌙✨"
+    };
+    
+    // State
+    let isPlaying = false;
+    let currentSection = 'opening';
+    
+    // ========== ELEMENT SDK INITIALIZATION ==========
+    async function initializeSDK() {
+      if (window.elementSdk) {
+        await window.elementSdk.init({
+          defaultConfig,
+          onConfigChange: async (config) => {
+            // Update nama pacar
+            const partnerDisplay = document.getElementById('partner-name-display');
+            if (partnerDisplay) {
+              partnerDisplay.textContent = (config.partner_name || defaultConfig.partner_name) + ' ❤️';
+            }
+            
+            // Update greeting utama
+            const mainTitle = document.getElementById('main-title');
+            if (mainTitle) {
+              mainTitle.textContent = config.main_greeting || defaultConfig.main_greeting;
+            }
+            
+            // Update closing text
+            const closingText = document.getElementById('closing-text');
+            if (closingText) {
+              closingText.textContent = config.closing_message || defaultConfig.closing_message;
+            }
+          },
+          mapToCapabilities: (config) => ({
+            recolorables: [],
+            borderables: [],
+            fontEditable: undefined,
+            fontSizeable: undefined
+          }),
+          mapToEditPanelValues: (config) => new Map([
+            ["partner_name", config.partner_name || defaultConfig.partner_name],
+            ["main_greeting", config.main_greeting || defaultConfig.main_greeting],
+            ["birthday_message", config.birthday_message || defaultConfig.birthday_message],
+            ["prayer_message", config.prayer_message || defaultConfig.prayer_message],
+            ["love_message", config.love_message || defaultConfig.love_message],
+            ["closing_message", config.closing_message || defaultConfig.closing_message]
+          ])
+        });
+      }
+    }
+    
+    // Get config value helper
+    function getConfigValue(key) {
+      if (window.elementSdk && window.elementSdk.config && window.elementSdk.config[key]) {
+        return window.elementSdk.config[key];
+      }
+      return defaultConfig[key];
+    }
+    
+    // ========== ANIMASI HATI & BINTANG ==========
+    function createFloatingHeart() {
+      const container = document.getElementById('hearts-container');
+      const heart = document.createElement('div');
+      heart.className = 'heart-float';
+      heart.innerHTML = ['❤️', '💕', '💖', '💗', '💓', '💝', '🌸'][Math.floor(Math.random() * 7)];
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.animationDuration = (6 + Math.random() * 4) + 's';
+      heart.style.fontSize = (15 + Math.random() * 15) + 'px';
+      container.appendChild(heart);
+      
+      setTimeout(() => heart.remove(), 10000);
+    }
+    
+    function createTwinkleStar() {
+      const container = document.getElementById('stars-container');
+      const star = document.createElement('div');
+      star.className = 'star-twinkle';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 2 + 's';
+      container.appendChild(star);
+      
+      setTimeout(() => star.remove(), 5000);
+    }
+    
+    // Start background animations
+    setInterval(createFloatingHeart, 800);
+    setInterval(createTwinkleStar, 1500);
+    
+    // ========== TYPING ANIMATION ==========
+    async function typeText(elementId, text, speed = 30) {
+      const element = document.getElementById(elementId);
+      if (!element) return;
+      
+      element.innerHTML = '';
+      const cursor = document.createElement('span');
+      cursor.className = 'typing-cursor';
+      
+      for (let i = 0; i < text.length; i++) {
+        element.textContent += text[i];
+        element.appendChild(cursor);
+        await new Promise(resolve => setTimeout(resolve, speed));
+      }
+      
+      setTimeout(() => cursor.remove(), 1000);
+    }
+    
+    async function startTypingAnimation() {
+      const birthdayMsg = getConfigValue('birthday_message');
+      const prayerMsg = getConfigValue('prayer_message');
+      const loveMsg = getConfigValue('love_message');
+      
+      await typeText('birthday-text', birthdayMsg, 25);
+      await new Promise(resolve => setTimeout(resolve, 500));
+      await typeText('prayer-text', prayerMsg, 25);
+      await new Promise(resolve => setTimeout(resolve, 500));
+      await typeText('love-text', loveMsg, 25);
+    }
+    
+    // ========== NAVIGASI HALAMAN ==========
+    function showSection(sectionId) {
+      const sections = ['opening-page', 'message-page', 'gallery-page', 'closing-page'];
+      sections.forEach(id => {
+        const section = document.getElementById(id);
+        if (section) {
+          section.classList.add('hidden');
+          section.classList.remove('flex');
+        }
+      });
+      
+      const targetSection = document.getElementById(sectionId);
+      if (targetSection) {
+        targetSection.classList.remove('hidden');
+        targetSection.classList.add('flex', 'fade-in');
+        document.getElementById('scroll-container').scrollTop = 0;
+        currentSection = sectionId;
+      }
+    }
+    
+    // ========== POPUP FUNCTIONS ==========
+    function showPopup(icon, text) {
+      document.getElementById('popup-icon').textContent = icon;
+      document.getElementById('popup-text').textContent = text;
+      document.getElementById('popup-modal').classList.remove('hidden');
+      createHeartBurst();
+    }
+    
+    function closePopup() {
+      document.getElementById('popup-modal').classList.add('hidden');
+    }
+    
+    // ========== PHOTO MODAL ==========
+    function openPhotoModal(index) {
+  const photo = photoData[index];
+
+  const modalPhoto = document.getElementById("modal-photo");
+
+  modalPhoto.innerHTML = `
+    <img src="${photo.image}"
+         class="w-full h-full object-contain rounded-2xl">
+  `;
+
+  document.getElementById("modal-caption").textContent =
+    photo.caption;
+
+  document.getElementById("photo-modal")
+    .classList.remove("hidden");
+}
+    // function openPhotoModal(index) {
+    //   const photo = photoData[index];
+    //   const modalPhoto = document.getElementById('modal-photo');
+    //   modalPhoto.className = `aspect-square bg-gradient-to-br ${photo.gradient} rounded-2xl flex items-center justify-center text-8xl mb-4`;
+    //   modalPhoto.textContent = photo.emoji;
+    //   document.getElementById('modal-caption').textContent = photo.caption;
+    //   document.getElementById('photo-modal').classList.remove('hidden');
+    // }
+    
+    function closePhotoModal() {
+      document.getElementById('photo-modal').classList.add('hidden');
+    }
+    
+    // ========== HEART BURST EFFECT ==========
+    function createHeartBurst() {
+      const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝', '🌸', '✨', '💫'];
+      for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+          const heart = document.createElement('div');
+          heart.className = 'heart-burst';
+          heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+          heart.style.left = (30 + Math.random() * 40) + '%';
+          heart.style.top = (30 + Math.random() * 40) + '%';
+          heart.style.fontSize = (20 + Math.random() * 30) + 'px';
+          document.body.appendChild(heart);
+          
+          setTimeout(() => heart.remove(), 1000);
+        }, i * 50);
+      }
+    }
+    
+    function createMassiveHeartBurst() {
+      const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝', '🌸', '✨', '💫', '🤗', '🥰', '😘'];
+      for (let i = 0; i < 50; i++) {
+        setTimeout(() => {
+          const heart = document.createElement('div');
+          heart.className = 'confetti';
+          heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+          heart.style.left = Math.random() * 100 + '%';
+          heart.style.top = '-50px';
+          heart.style.fontSize = (20 + Math.random() * 40) + 'px';
+          heart.style.animation = `floatUp ${3 + Math.random() * 3}s linear forwards`;
+          heart.style.animationDirection = 'reverse';
+          document.body.appendChild(heart);
+          
+          setTimeout(() => heart.remove(), 6000);
+        }, i * 100);
+      }
+    }
+    
+    // ========== MUSIC TOGGLE ==========
+    function toggleMusic() {
+      const audio = document.getElementById("bgm");
+      const musicIcon = document.getElementById("music-icon");
+
+      isPlaying = !isPlaying;
+
+      if (isPlaying) {
+        audio.play();
+        musicIcon.classList.remove("music-paused");
+      } else {
+        audio.pause();
+        musicIcon.classList.add("music-paused");
+      }
+    }
+    
+    // ========== EVENT LISTENERS ==========
+    document.getElementById('open-message-btn').addEventListener('click', () => {
+      if (!isPlaying) toggleMusic();
+      showSection('message-page');
+      setTimeout(startTypingAnimation, 500);
+    });
+    
+    document.getElementById('love-btn').addEventListener('click', () => {
+      showPopup('💕', popupMessages.love);
+    });
+    
+    document.getElementById('secret-btn').addEventListener('click', () => {
+      showPopup('🌙', popupMessages.secret);
+    });
+    
+    document.getElementById('gallery-btn').addEventListener('click', () => {
+      showSection('gallery-page');
+    });
+    
+    document.getElementById('to-closing-btn').addEventListener('click', () => {
+      showSection('closing-page');
+    });
+    
+    document.getElementById('hug-btn').addEventListener('click', () => {
+      createMassiveHeartBurst();
+      showPopup('🤗', 'Pelukan hangat untukmu! Aku memelukmu erat-erat dengan sepenuh hati. Kamu adalah segalanya bagiku. Selamat ulang tahun, cintaku! 💕');
+    });
+    
+    document.getElementById('restart-btn').addEventListener('click', () => {
+      showSection('opening-page');
+    });
+    
+    // Close popup when clicking outside
+    document.getElementById('popup-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'popup-modal') {
+        closePopup();
+      }
+    });
+    
+    // ========== INITIALIZE ==========
+    initializeSDK();
+    
+    // Initial hearts and stars
+    for (let i = 0; i < 5; i++) {
+      setTimeout(createFloatingHeart, i * 200);
+      setTimeout(createTwinkleStar, i * 300);
+    }
+  </script>
+  <audio id="bgm" loop>
+  <source src="musik.mp3" type="audio/mpeg">
+</audio>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9dadd38594d1fe07',t:'MTc3MzI2NjM2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
